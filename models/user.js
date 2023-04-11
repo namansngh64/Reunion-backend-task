@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 const { v4: uuidv4 } = require("uuid");
+const { ObjectId } = mongoose.Schema;
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -18,19 +19,23 @@ const userSchema = mongoose.Schema(
       type: Number,
       default: 0
     },
-    following: {
-      type: Array,
-      default: []
-    },
+    following: [
+      {
+        type: ObjectId,
+        ref: "User"
+      }
+    ],
     salt: String,
     encry_password: {
       type: String,
       required: true
     },
-    followers: {
-      type: Array,
-      default: []
-    }
+    followers: [
+      {
+        type: ObjectId,
+        ref: "User"
+      }
+    ]
   },
   { timestamps: true }
 );

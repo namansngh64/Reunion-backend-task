@@ -8,6 +8,8 @@ const app = express();
 
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const postRoutes = require("./routes/post");
+const commentRoutes = require("./routes/comment");
 
 const port = process.env.PORT || 9900;
 const database = process.env.DATABASE;
@@ -28,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 //My Routes
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", postRoutes);
+app.use("/api", commentRoutes);
 
 //DB Connection
 mongoose.set("strictQuery", true);
