@@ -56,12 +56,12 @@ app.get("/", (req, res) => {
 });
 
 //RENDER KEEP ALIVE
-// const keepAlive = async () => {
-//   console.log("running keepAlive");
-//   const HOST = "localhost:9900"; //!RENDER ADDRESS
-//   const ping = await axios.get(`https://${HOST}/`).catch((error) => {
-//     console.log(error);
-//   });
-//   console.log(ping.data);
-// };
-// setInterval(keepAlive, 1000);
+const keepAlive = async () => {
+  console.log("running keepAlive");
+  const HOST = "reunion-task-backend.onrender.com"; //!RENDER ADDRESS
+  const ping = await axios.get(`https://${HOST}/`).catch((error) => {
+    console.log(error);
+  });
+  console.log(ping.data);
+};
+setInterval(keepAlive, 13 * 60 * 1000);
