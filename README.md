@@ -15,3 +15,9 @@ Also add .env file containing PORT,DATABSE and SECRET information.
 # To run the test cases using mocha and chai
 
 Run --- npm test --- in cmd and 11 test cases will run (Be sure to have mocha & chaijs dependencies installed)
+
+# Docker 
+
+docker compose up -d  
+
+(No need for .env file or mongodb)
