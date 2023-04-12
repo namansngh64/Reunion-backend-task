@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    environment:
+      DATABASE: mongodb://mongoadmin:mongopassword@db:27017
+      SECRET: jsdbasljfbsdl#@vmasnds45
+    links:
+      - mongodb:db
+    ports:
+      - 9900:9900
+    depends_on:
+      - mongodb
+
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    ports:
+      - 27017:27017
+
+
+networks:
+  default:
+    name: reunion
