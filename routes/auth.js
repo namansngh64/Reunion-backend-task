@@ -13,7 +13,7 @@ router.post(
   signup
 );
 router.post(
-  "/signin",
+  "/authenticate",
   body("email", "Enter valid email").isEmail(),
   body("password", "Password is required").isLength({ min: 1 }),
   signin
